@@ -1,0 +1,6 @@
+{
+  "name": "GeoVigilance",
+  "description": "Real-time emergency crowdsourcing and geofenced alert system connecting law enforcement and citizens.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

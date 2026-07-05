@@ -1,0 +1,293 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-luxury-bg: var(--bg-color, #070709);
+  --color-luxury-card: #111114;
+  --color-luxury-card-elevated: #16161c;
+  --color-luxury-border: var(--border-color, rgba(197, 168, 128, 0.15));
+  --color-luxury-gold: var(--accent-color, #c5a880);
+  --color-luxury-gold-hover: var(--accent-hover, #b3946a);
+  --color-luxury-bronze: #8c7255;
+  --color-luxury-accent: #2e303d;
+}
+
+:root {
+  --accent-color: #c5a880;
+  --accent-hover: #b3946a;
+  --bg-color: #050508;
+  --border-color: rgba(197, 168, 128, 0.15);
+  --grid-color: rgba(197, 168, 128, 0.03);
+  --glow-color: rgba(197, 168, 128, 0.02);
+  --glow-color-hover: rgba(197, 168, 128, 0.05);
+}
+
+[data-theme="matrix"] {
+  --accent-color: #22c55e;
+  --accent-hover: #16a34a;
+  --bg-color: #010602;
+  --border-color: rgba(34, 197, 94, 0.15);
+  --grid-color: rgba(34, 197, 94, 0.03);
+  --glow-color: rgba(34, 197, 94, 0.02);
+  --glow-color-hover: rgba(34, 197, 94, 0.05);
+}
+
+[data-theme="amber"] {
+  --accent-color: #f59e0b;
+  --accent-hover: #d97706;
+  --bg-color: #050301;
+  --border-color: rgba(245, 158, 11, 0.15);
+  --grid-color: rgba(245, 158, 11, 0.03);
+  --glow-color: rgba(245, 158, 11, 0.02);
+  --glow-color-hover: rgba(245, 158, 11, 0.05);
+}
+
+[data-theme="subzero"] {
+  --accent-color: #0ea5e9;
+  --accent-hover: #0284c7;
+  --bg-color: #010408;
+  --border-color: rgba(14, 165, 233, 0.15);
+  --grid-color: rgba(14, 165, 233, 0.03);
+  --glow-color: rgba(14, 165, 233, 0.02);
+  --glow-color-hover: rgba(14, 165, 233, 0.05);
+}
+
+/* Custom premium scrollbar style */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #070709;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3f3f46;
+}
+
+/* Premium ambient glows */
+.glow-gold {
+  box-shadow: 0 0 25px -5px rgba(197, 168, 128, 0.15);
+}
+
+.glow-red {
+  box-shadow: 0 0 25px -5px rgba(239, 68, 68, 0.2);
+}
+
+.glow-indigo {
+  box-shadow: 0 0 25px -5px rgba(99, 102, 241, 0.15);
+}
+
+.glow-emerald {
+  box-shadow: 0 0 25px -5px rgba(16, 185, 129, 0.15);
+}
+
+/* Glassmorphism subtle layers */
+.luxury-glass {
+  background: rgba(17, 17, 20, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Custom animations */
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 0.4; }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Active threat border neon lines */
+.neon-border-red {
+  position: relative;
+}
+.neon-border-red::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  box-shadow: 0 0 8px rgba(239, 68, 68, 0.2);
+  pointer-events: none;
+}
+
+.neon-border-gold {
+  position: relative;
+}
+.neon-border-gold::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 1px solid rgba(197, 168, 128, 0.4);
+  box-shadow: 0 0 8px rgba(197, 168, 128, 0.2);
+  pointer-events: none;
+}
+
+/* Custom Leaflet style overrides */
+.leaflet-container {
+  font-family: inherit !important;
+  background-color: #070709 !important;
+}
+
+.custom-leaflet-tooltip {
+  background: rgba(7, 7, 9, 0.95) !important;
+  border: 1px solid rgba(197, 168, 128, 0.45) !important;
+  color: #c5a880 !important;
+  font-family: "JetBrains Mono", monospace !important;
+  font-size: 10px !important;
+  font-weight: 600 !important;
+  padding: 3px 8px !important;
+  border-radius: 6px !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5) !important;
+}
+
+.custom-leaflet-tooltip::before {
+  border-top-color: rgba(197, 168, 128, 0.45) !important;
+}
+
+.leaflet-popup-content-wrapper {
+  background: rgba(17, 17, 20, 0.95) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  color: #a1a1aa !important;
+  border: 1px solid rgba(197, 168, 128, 0.25) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5) !important;
+  padding: 2px !important;
+}
+
+.leaflet-popup-content {
+  margin: 12px !important;
+  line-height: 1.5 !important;
+}
+
+.leaflet-popup-content strong {
+  color: #c5a880 !important;
+}
+
+.leaflet-popup-tip {
+  background: rgba(17, 17, 20, 0.95) !important;
+  border: 1px solid rgba(197, 168, 128, 0.25) !important;
+}
+
+/* Hide the Leaflet zoom control because we use our own */
+.leaflet-control-zoom {
+  display: none !important;
+}
+
+/* HIGH-FIDELITY TAC-HUD ELEMENTS FOR THE JUDGES */
+.cyber-grid {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, var(--grid-color, rgba(197, 168, 128, 0.03)) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-color, rgba(197, 168, 128, 0.03)) 1px, transparent 1px);
+}
+
+.hud-panel {
+  position: relative;
+  background: rgba(10, 10, 13, 0.88);
+  border: 1px solid var(--border-color, rgba(197, 168, 128, 0.15));
+  box-shadow: 
+    inset 0 0 15px var(--glow-color, rgba(197, 168, 128, 0.02)),
+    0 4px 30px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hud-panel:hover {
+  border-color: var(--accent-color, rgba(197, 168, 128, 0.35));
+  box-shadow: 
+    inset 0 0 20px var(--glow-color-hover, rgba(197, 168, 128, 0.05)),
+    0 10px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* Corner bracket ornaments for high-end military look */
+.corner-bracket {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-color: var(--accent-color, #c5a880);
+  pointer-events: none;
+  opacity: 0.6;
+  transition: all 0.3s ease;
+}
+
+.hud-panel:hover .corner-bracket {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.bracket-tl {
+  top: -1px;
+  left: -1px;
+  border-top-width: 2px;
+  border-left-width: 2px;
+}
+
+.bracket-tr {
+  top: -1px;
+  right: -1px;
+  border-top-width: 2px;
+  border-right-width: 2px;
+}
+
+.bracket-bl {
+  bottom: -1px;
+  left: -1px;
+  border-bottom-width: 2px;
+  border-left-width: 2px;
+}
+
+.bracket-br {
+  bottom: -1px;
+  right: -1px;
+  border-bottom-width: 2px;
+  border-right-width: 2px;
+}
+
+/* CRT monitor subtle scanlines overlay */
+.cyber-scanlines::after {
+  content: " ";
+  display: block;
+  position: fixed;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.12) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.01), rgba(0, 255, 0, 0.005), rgba(0, 0, 255, 0.01));
+  z-index: 99999;
+  background-size: 100% 4px, 6px 100%;
+  pointer-events: none;
+  opacity: 0.25;
+}
+
+/* Soft ambient atmospheric glow lines */
+.glow-accent-rose {
+  box-shadow: 0 0 40px -10px rgba(239, 68, 68, 0.15);
+}
+
+.glow-accent-gold {
+  box-shadow: 0 0 40px -10px rgba(197, 168, 128, 0.15);
+}
+
+/* Interactive sweeping indicator */
+@keyframes sweep {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.radar-sweep {
+  animation: sweep 8s linear infinite;
+}
+
+
